@@ -7,5 +7,9 @@ module.exports = {
   app: {
     port: process.env.PORT || 3000,
   },
-  db: {},
+  db: {
+    mongodb: {
+      uri: process.env.MONGODB_URI,
+    },
+  },
 };
