@@ -1,5 +1,5 @@
 const OrderEvent = require('../../models/orderEvent');
-const { CreateOrder, UpdateAddress, UpdateStatus } = require('./eventNames');
+const { CreateOrder, UpdateOrderAddress, UpdateOrderStatus } = require('./eventNames');
 const { reducer } = require('./reducer');
 
 const makeOrderEvent = (type) => (data = {}) => {
@@ -16,6 +16,6 @@ const makeOrderEvent = (type) => (data = {}) => {
 };
 
 exports.makeCreateOrderEvent = makeOrderEvent(CreateOrder);
-exports.makeUpdateAddressEvent = makeOrderEvent(UpdateAddress);
-exports.makeUpdateStatusEvent = makeOrderEvent(UpdateStatus);
+exports.makeUpdateAddressEvent = makeOrderEvent(UpdateOrderAddress);
+exports.makeUpdateStatusEvent = makeOrderEvent(UpdateOrderStatus);
 exports.saveEvents = reducer;

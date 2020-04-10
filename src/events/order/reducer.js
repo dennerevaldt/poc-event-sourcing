@@ -1,5 +1,9 @@
 const Order = require('../../models/order');
-const { CreateOrder, UpdateAddress, UpdateStatus } = require('./eventNames');
+const {
+  CreateOrder,
+  UpdateOrderAddress,
+  UpdateOrderStatus,
+} = require('./eventNames');
 
 const reduce = async (orderEvent) => {
   if (orderEvent.type === CreateOrder) {
@@ -18,10 +22,10 @@ const reduce = async (orderEvent) => {
   const order = await Order.findOne({ orderId: orderEvent.orderId });
 
   switch (orderEvent.type) {
-    case UpdateAddress:
+    case UpdateOrderAddress:
       order.address = orderEvent.data.address;
       break;
-    case UpdateStatus:
+    case UpdateOrderStatus:
       order.status = orderEvent.data.status;
       break;
     default:
